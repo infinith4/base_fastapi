@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 requests = "*"
 fastapi = "*"
+aiofiles = "*"
+uvicorn = "*"
 
 [requires]
 python_version = "3.9"

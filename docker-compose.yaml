@@ -1,0 +1,19 @@
+version: "3.0"
+
+services:
+  # FastAPI
+  api:
+    container_name: "api"
+    build: .
+    restart: always
+    tty: true
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle:cached
+      # 1. exclude volumes
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+      - /app/.git
