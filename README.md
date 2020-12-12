@@ -29,7 +29,7 @@ uvicorn main:app --reload
 
 
 https://qiita.com/satto_sann/items/fcd3832a1fea2c607b85
-
+https://qiita.com/kawasin73/items/3e58fc8a14af66ab7204
 
 ```
 docker-compose up -d --build

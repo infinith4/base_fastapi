@@ -1,12 +1,14 @@
 FROM python:3.9-alpine
 
-WORKDIR /app
+ENV WORKDIR /app/
+WORKDIR ${WORKDIR}
 
-COPY Pipfile .
+COPY Pipfile Pipfile.lock ${WORKDIR}
+
 # コンテナ内で必要なパッケージをインストール
-RUN apk add --no-cache build-base \
- && pipenv install --no-cache-dir --trusted-host pypi.python.org \
- && apk del build-base
+RUN pip install pipenv --no-cache-dir && \
+    pipenv install --system --deploy && \
+    pip uninstall -y pipenv virtualenv-clone virtualenv
 
 COPY app/main.py .
 EXPOSE 8000
