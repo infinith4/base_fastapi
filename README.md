@@ -42,3 +42,7 @@ docker images | grep api
 open api
 
 http://localhost:8000/docs
+
+
+docker-compose build
+docker run -it --rm -p 80:80 -e WORKER_PROCESSES=2 base_fastapi_app
